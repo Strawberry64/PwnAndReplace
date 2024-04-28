@@ -73,7 +73,7 @@ Printed False
 
 """
 Sources
-big example on how to use the hashlib library and code
+big example on how to use the hashlib library and code, mainly used
 https://ioflood.com/blog/python-hashlib/
 
 another step by step example on using the hashlib library for SHA1
@@ -81,4 +81,8 @@ https://www.codeease.net/programming/python/generate-sha1-python
 
 official python docs on the hashlib library, although a lot less user friendly learning experience
 https://docs.python.org/3/library/hashlib.htmlhttps://docs.python.org/3/library/hashlib.html 
+
+official Pwned API docs with some information detailing how Pwned Passwords API works
+https://haveibeenpwned.com/API/v3#AllBreacheshttps://haveibeenpwned.com/API/v3#AllBreaches
+
 """
