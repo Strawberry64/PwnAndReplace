@@ -6,7 +6,7 @@ import hashlib
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 
-def checkPassword(password):
+def callAPI(password):
     hashOne = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
     response = requests.get('https://api.pwnedpasswords.com/range/' + hashOne[:5])
     seperatedLines = response.text.splitlines()
@@ -15,8 +15,18 @@ def checkPassword(password):
         hashTwo.append(line.split(':'))
     for h in hashTwo:
         if h[0] == hashOne[5:]:
-            return True 
+            return h 
     return False
+
+
+def getPwned(passwordInfo):
+    if(passwordInfo == False):
+        return False
+    else:   
+        return True
+
+def getCount(passwordInfo):
+    return passwordInfo[1]
 
 @app.route('/')
 def index():
@@ -25,9 +35,11 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit():
     password = request.form['password']
-    if checkPassword(password):
+    passwordInfo = callAPI(password)
+    if getPwned(passwordInfo):
         message = 'Password has been pwned! If you would like to make a new password that has not been pwned, <a href="/password">go here</a>'
         image = 'pwned.jpg'
+        count = getCount(passwordInfo)
     else:
         message = 'Password has not been pwned.'
         image = 'good.webp'
