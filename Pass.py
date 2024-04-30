@@ -34,9 +34,5 @@ def generate_password(min_length, numbers=True, special_characters=True):
 
     return pwd
 
-min_length = int(input("Choose password length (10 characters minimum):"))
-has_number = input("Should it contain numbers (y/n)?").lower() == "y"
-has_special = input("Should it contain special characters(y/n)?").lower() == "y"
-pwd = generate_password(min_length, has_number, has_special)
-print("Here is the generated password:", pwd)
+
 
