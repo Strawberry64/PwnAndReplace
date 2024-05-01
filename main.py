@@ -5,6 +5,7 @@ import hashlib
 
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
+highScore = 0
 
 def callAPI(password):
     hashOne = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
@@ -30,25 +31,30 @@ def getCount(passwordInfo):
 
 @app.route('/')
 def index():
-    return render_template('pwned.html')
+    return render_template('pwned.html', highScore=highScore)
 
 @app.route('/submit', methods=['POST'])
 def submit():
+    global highScore
     password = request.form['password']
     passwordInfo = callAPI(password)
+    
     if getPwned(passwordInfo):
+        count = getCount(passwordInfo)
         message = 'Password has been pwned! If you would like to make a new password that has not been pwned, <a href="/password">go here</a>'
         image = 'pwned.jpg'
-        count = getCount(passwordInfo)
+        if getPwned(passwordInfo) == True:
+            if highScore < int(count):
+                highScore = int(count)
     else:
         message = 'Password has not been pwned.'
         image = 'good.webp'
-    return render_template('pwned.html', message=message, image=image)
+    return render_template('pwned.html', message=message, image=image, highScore=highScore)
 
 
 @app.route('/password')
 def password():
-    return render_template('password.html')
+    return render_template('password.html', highScore=highScore)
 
 
 if __name__ == '__main__':

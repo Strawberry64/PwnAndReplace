@@ -24,6 +24,9 @@
                 {{ message | safe }}
             </div>
         {% endif %}
+        {% if highScore > 0 %}
+            <h1>High Score: {{highScore}} </h1>
+        {% endif %}
     </div>
 </body>
 </html>
