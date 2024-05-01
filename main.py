@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap5
 import requests
 import hashlib
+from Pass import generate_password
 
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
@@ -41,7 +42,7 @@ def submit():
     
     if getPwned(passwordInfo):
         count = getCount(passwordInfo)
-        message = 'Password has been pwned! If you would like to make a new password that has not been pwned, <a href="/password">go here</a>'
+        message = f'Password has been pwned {count} times! If you would like to make a new password that has not been pwned, <a href="/password">go here</a>'
         image = 'pwned.jpg'
         if getPwned(passwordInfo) == True:
             if highScore < int(count):
@@ -52,9 +53,12 @@ def submit():
     return render_template('pwned.html', message=message, image=image, highScore=highScore)
 
 
+
 @app.route('/password')
 def password():
-    return render_template('password.html', highScore=highScore)
+    # Generate a password using the generate_password function
+    password = generate_password(min_length=10, numbers=True, special_characters=True)
+    return render_template('password.html', password=password)
 
 
 if __name__ == '__main__':
