@@ -43,13 +43,13 @@ def submit():
     if getPwned(passwordInfo):
         count = getCount(passwordInfo)
         message = f'Password has been pwned {count} times! If you would like to make a new password that has not been pwned, <a href="/password">go here</a>'
-        image = 'pwned.jpg'
+        image = 'warning.svg'
         if getPwned(passwordInfo) == True:
             if highScore < int(count):
                 highScore = int(count)
     else:
         message = 'Password has not been pwned.'
-        image = 'good.webp'
+        image = 'ok.svg'
     return render_template('pwned.html', message=message, image=image, highScore=highScore)
 
 
@@ -57,7 +57,7 @@ def submit():
 @app.route('/password')
 def password():
     # Generate a password using the generate_password function
-    password = generate_password(min_length=10, numbers=True, special_characters=True)
+    password = generate_password(min_length=20, numbers=True, special_characters=True)
     return render_template('password.html', password=password)
 
 
@@ -97,5 +97,8 @@ https://docs.python.org/3/library/hashlib.htmlhttps://docs.python.org/3/library/
 
 official Pwned API docs with some information detailing how Pwned Passwords API works
 https://haveibeenpwned.com/API/v3#AllBreacheshttps://haveibeenpwned.com/API/v3#AllBreaches
+
+To align elements using CSS, used for the images in pwned.html
+https://www.w3schools.com/css/tryit.asp?filename=trycss_align_container
 
 """
