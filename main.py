@@ -42,13 +42,13 @@ def submit():
     
     if getPwned(passwordInfo):
         count = getCount(passwordInfo)
-        message = f'Password has been pwned {count} times! If you would like to make a new password that has not been pwned, <a href="/password">go here</a>'
+        message = f'Password has been pwned {count} times! If you would like to make a new password that has not been pwned, <a href="/password">go here</a>. Also, Learn more making secure passwords <a href="/info">here</a>.'
         image = 'warning.svg'
         if getPwned(passwordInfo) == True:
             if highScore < int(count):
                 highScore = int(count)
     else:
-        message = 'Password has not been pwned.'
+        message = 'Password has not been pwned. Learn more making secure passwords <a href="/info">here</a>.'
         image = 'ok.svg'
     return render_template('pwned.html', message=message, image=image, highScore=highScore)
 
@@ -60,6 +60,9 @@ def password():
     password = generate_password(min_length=20, numbers=True, special_characters=True)
     return render_template('password.html', password=password)
 
+@app.route('/info')
+def info():
+    return render_template('info.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
