@@ -1,3 +1,11 @@
+"""
+Course: CST205
+Title: main.py
+Abstract: includes most functions for pages, as well as routes to those pages.
+Authors: Luis Medina, Alexangelo Orozco Gutierrez, Miracle Marasigan, Landon Wivell
+Date: May 14, 2024
+"""
+
 from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap5
 import requests
@@ -8,6 +16,7 @@ app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 highScore = 0
 
+#done both by Alexangelo and Landon, calls pwned passwords API
 def callAPI(password):
     hashOne = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
     response = requests.get('https://api.pwnedpasswords.com/range/' + hashOne[:5])
@@ -20,16 +29,18 @@ def callAPI(password):
             return h 
     return False
 
-
+#done by Luis
 def getPwned(passwordInfo):
     if(passwordInfo == False):
         return False
     else:   
         return True
 
+#done both by Alexangelo
 def getCount(passwordInfo):
     return passwordInfo[1]
 
+#done by Luis and Alexangelo, shows message either pwned or not pwned messages, pwned message include link to password generator and info page, also shows numbers of pwns for a password
 @app.route('/')
 def index():
     return render_template('pwned.html', highScore=highScore)
@@ -53,7 +64,7 @@ def submit():
     return render_template('pwned.html', message=message, image=image, highScore=highScore)
 
 
-
+#done by Miracle, generates a random password
 @app.route('/password')
 def password():
     # Generate a password using the generate_password function

@@ -1,3 +1,12 @@
+<!-- 
+Course: CST205
+Title: pwned.html
+Abstract: html view for PwnedPasswords page
+Authors: Luis Medina, Alexangelo Orozco Gutierrez
+Date: May 14, 2024
+-->
+
+<!-- I, Luis Medina did most of the page, while Alexangelo added the highscore stuff -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +23,12 @@
     <title>Pwned Password</title>
     {{ bootstrap.load_css() }}
 </head>
+<!-- 
+User puts password, then will one of two results will appear, pwned or not pwned. 
+Not pwned essentially only states that your password is good.
+Pwned will display a message that your password is not good, showing a link that redirects to the password page, as well as the information page.
+Pwned also has a counter for how many times a password has been pwned.
+-->
 <body>
     <div class="container mt-5">
         <h1>Pwned Password</h1>
