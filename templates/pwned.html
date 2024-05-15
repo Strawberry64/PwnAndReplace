@@ -43,6 +43,8 @@ Date: May 14, 2024
         }
     </style>
     {{ bootstrap.load_css() }}
+    {{ bootstrap.load_js() }}
+
 </head>
 <!-- 
 User puts password, then will one of two results will appear, pwned or not pwned. 
@@ -101,5 +103,6 @@ Pwned also has a counter for how many times a password has been pwned.
             <h1>High Score: {{highScore}} </h1>
         {% endif %}
     </div>
+    
 </body>
 </html>
