@@ -4,6 +4,12 @@ Title: main.py
 Abstract: includes most functions for pages, as well as routes to those pages.
 Authors: Luis Medina, Alexangelo Orozco Gutierrez, Miracle Marasigan, Landon Wivell
 Date: May 14, 2024
+
+
+HOW TO RUN!
+Have Flask, Bootstrap, and Requests libary installed in your Python/Virtual Enviorment
+Use command "flask --app main --debug run"
+Hover over link and click it(You may need to hold shift or control/command in order to click it)
 """
 
 from flask import Flask, render_template, request
