@@ -1,15 +1,167 @@
+<!-- 
+Course: CST205
+Title: info.html
+Abstract: html view for information page
+Authors: Luis Medina, Landon Wivell
+Date: May 14, 2024
+-->
+
+<!-- info provided by Landon, page and additional info done by Luis -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info</title>
+    <title>Password Security Tips</title>
     {{ bootstrap.load_css() }}
+    <style>
+        body {
+            padding: 20px;
+            background-color: rgb(148, 186, 221);
+        }
+
+        .tip {
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 400px;
+            height: auto;
+        }
+
+        .header-bg {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #fff; /* Change text color on hover */
+            background-color: rgba(255,255,255,0.1); /* Change background color on hover */
+            border-radius: 5px; /* Optional: Add border-radius for a rounded effect */
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Info</h1>
-        <p>Placeholder text for info about secure passwords.</p>
+        <div class="header-bg">
+            <h1 class="text-center">Pwn and Replace</h1>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/" style="color: white;">Pwned Password Checker</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/info" style="color: white;">Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/password" style="color: white;">Generate Password</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <hr>
+    <div class="container">
+        <h1>Password Security Tips</h1>
+        <br>
+        <div class="tip">
+            <h3>Don’t reuse your passwords</h3>
+            <p>Using the same password for multiple accounts increases your vulnerability in case one of those accounts is compromised.</p>
+        </div>
+
+        <div class="tip">
+            <h3>Don’t write your passwords down</h3>
+            <p>Writing down passwords can lead to them being discovered by others. Instead, consider using a password manager.</p>
+            <img src="/static/images/write.jpg" alt="Write" />
+        </div>
+
+        <div class="tip">
+            <h3>Use a password manager</h3>
+            <p>Password managers can generate and store complex passwords for you, reducing the risk of using weak or reused passwords.</p>
+            <img src="/static/images/mang.webp" alt="Manage" />
+        </div>
+
+        <div class="tip">
+            <h3>Using a password manager</h3>
+            <p>Password managers offer several advantages:</p>
+            <ul>
+                <li>Convenience: Password managers can store and manage all your passwords, eliminating the need to remember multiple passwords.</li>
+                <li>Complex password generation: Password managers can generate strong, complex passwords for you.</li>
+                <li>Support for multiple devices: Password managers can sync your passwords across multiple devices.</li>
+                <li>Enhanced security: Password managers encrypt your passwords, making them more secure.</li>
+            </ul>
+            <p>However, there are some drawbacks:</p>
+            <ul>
+                <li>Single point of failure / dependency on software: If your password manager is compromised, all your passwords could be at risk.</li>
+                <li>Potential learning curve: Some password managers may have a learning curve for new users.</li>
+                <li>Cost: Some password managers require a subscription or purchase fee.</li>
+                <li>2FA not required: While 2FA is a recommended security measure, it is not always required by password managers.</li>
+            </ul>
+        </div>
+
+        <div class="tip">
+            <h3>Don’t share your passwords</h3>
+            <p>Sharing passwords, even with trusted individuals, can increase the risk of those passwords being compromised.</p>
+        </div>
+
+        <div class="tip">
+            <h3>Use your keyboard as a canvas</h3>
+            <p>Consider creating passwords using shapes or patterns of keys on your keyboard for added security.</p>
+            <img src="/static/images/key.avif" alt="Keyboard" />
+        </div>
+
+        <div class="tip">
+            <h3>Periodically update your passwords</h3>
+            <p>Regularly changing your passwords, especially for critical accounts, can help protect your accounts from being compromised.</p>
+        </div>
+
+        <div class="tip">
+            <h3>Use 2 factor authentication (2FA) or Single Sign On when possible</h3>
+            <p>Implementing 2FA or SSO can add an extra layer of security to your accounts. SSO authenticates the user once and grants access to all authorized systems without the need for additional login prompts, while 2FA requires users to provide two or more authentication factors to verify their identity.</p>
+            <img src="/static/images/2FA.webp" alt="2FA" />
+        </div>
+        
+        <div class="tip">
+            <h3>Use a phrase and incorporate shortcut codes or acronyms</h3>
+            <p>Examples:</p>
+            <ul>
+                <li>2BorNot2B_ThatIsThe?</li>
+                <li>L8r_L8rNot2day</li>
+                <li>4Score&7yrsAgo</li>
+                <li>John3:16=4G</li>
+            </ul>
+            <p>Using a phrase that is meaningful to you and incorporating shortcut codes or acronyms can help create memorable and secure passwords.</p>
+        </div>
+
+        <div class="tip">
+            <h3>Use passwords with common elements, but customized to specific sites</h3>
+            <p>For example:</p>
+            <ul>
+                <li>ABT2_uz_AMZ! (About to use Amazon)</li>
+                <li>ABT2_uz_BoA! (About to use Bank of America)</li>
+                <li>Pwrd4Acct-$$ (Password for account at the bank)</li>
+                <li>Pwrd4Acct-Fb (Password for a Facebook account)</li>
+            </ul>
+            <p>Customizing passwords for different sites can help protect your accounts if one of your passwords is compromised.</p>
+        </div>
     </div>
 </body>
 </html>
+
+
+<!-- 
+Sources: 
+https://support.microsoft.com/en-us/windows/create-and-use-strong-passwords-c5cebb49-8c53-4f5e-2bc4-fe357ca048eb
+https://www.webroot.com/us/en/resources/tips-articles/how-do-i-create-a-strong-password
+https://www.trustworthy.com/blog/pros-and-cons-password-manager
+https://www.passwordboss.com/pros-and-cons-of-using-a-password-manager/
+
+-->

@@ -12,15 +12,36 @@ Date: May 14, 2024
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pwned Password</title>
     <style>
+        body {
+            background-color: rgb(148, 186, 221) !important;
+        }
+
         .center {
             margin-left: auto;
             margin-right: auto;
             width: 30%;
             display: block;
         }
+        .header-bg {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            height: auto;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #fff; /* Change text color on hover */
+            background-color: rgba(255,255,255,0.1); /* Change background color on hover */
+            border-radius: 5px; /* Optional: Add border-radius for a rounded effect */
+        }
     </style>
-    <title>Pwned Password</title>
     {{ bootstrap.load_css() }}
 </head>
 <!-- 
@@ -31,10 +52,39 @@ Pwned also has a counter for how many times a password has been pwned.
 -->
 <body>
     <div class="container mt-5">
+        <div class="header-bg">
+            <h1 class="text-center">Pwn and Replace</h1>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/" style="color: white;">Pwned Password Checker</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/info" style="color: white;">Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/password" style="color: white;">Generate Password</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <hr>
+    <div class="container">
         <h1>Pwned Password</h1>
+        <br>
+        <img src="/static/images/leak.png" alt="Leak" />
+        <br>
         <form method="POST" action="/submit">
             <div class="mb-3">
-                <label for="password" class="form-label">Enter Password:</label>
+                <label for="password" class="form-label"> <b> Enter Password:</b></label> 
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

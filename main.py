@@ -40,7 +40,7 @@ def getPwned(passwordInfo):
 def getCount(passwordInfo):
     return passwordInfo[1]
 
-#done by Luis and Alexangelo, shows message either pwned or not pwned messages, pwned message include link to password generator and info page, also shows numbers of pwns for a password
+#done by Luis, Landon, and Alexangelo, shows message either pwned or not pwned messages, pwned message include link to password generator and info page, also shows numbers of pwns for a password
 @app.route('/')
 def index():
     return render_template('pwned.html', highScore=highScore)
