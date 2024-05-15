@@ -12,6 +12,7 @@ How to Run the Program:
 5. Access the application in your web browser at http://127.0.0.1:5000/
 
 GitHub Repository: https://github.com/Strawberry64/PwnAndReplace
+Trello: https://trello.com/b/EbhUEl0i/cst-205-group-project
 
 Future Work:
 Possible UI updates
