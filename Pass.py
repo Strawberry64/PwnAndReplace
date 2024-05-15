@@ -2,14 +2,14 @@
 Course: CST205
 Title: Pass.py
 Abstract: function to generate password
-Authors: Miracle Marasigan, Landon Wivell
+Authors: Miracle Marasigan
 Date: May 14, 2024
 """
 import random
 import string
 #import numbers
 
-#done by Miracle and Landon, password generator includes numbers and special characters.
+#done by Miracle, password generator includes numbers and special characters.
 def generate_password(min_length, numbers=True, special_characters=True):
     letters = string.ascii_letters
     digits = string.digits
