@@ -29,14 +29,14 @@ def callAPI(password):
             return h 
     return False
 
-#done by Luis
+#done by Landon
 def getPwned(passwordInfo):
     if(passwordInfo == False):
         return False
     else:   
         return True
 
-#done both by Alexangelo
+#done by Landon
 def getCount(passwordInfo):
     return passwordInfo[1]
 
